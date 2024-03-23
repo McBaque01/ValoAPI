@@ -5,17 +5,12 @@ interface AgentButtonProps {
     agents: AgentType[];
     handleCurrentAgent: (agent: AgentType[]) => void;
 }
-
-
-
 const AgentButton : React.FC<AgentButtonProps> = ({agents, handleCurrentAgent}) => {
-
-console.log(agents, "Button")
   return (
-    <>  <div className='flex flex-row justify-center flex-wrap w-[40%] bg-blue-300 h-fit gap-4 p-4' >
+    <>  <div className='flex flex-row justify-center flex-wrap w-[100%] h-[14em] gap-4 p-4 fixed overflow-y-scroll overflow-x-scroll bottom-[4em] z-40'>
             {agents && agents.length > 0 && agents.map(agent => (
-                <div key={agent.uuid} className='border-2 hover:border-ValoGreen overflow-hidden h-[7em] w-[7em]'>
-                    <div className='h-[7em] w-[7em] hover:bg-slate-400 hover:scale-105' 
+                <div key={agent.uuid} className='border-2 hover:border-ValoGreen overflow-hidden h-[5em] w-[5em]'>
+                    <div className='h-[5em] w-[5em] hover:bg-slate-200 hover:scale-105' 
                             style={{
                             backgroundImage: `url(${agent.displayIcon})`,
                             backgroundSize:'cover',

@@ -120,9 +120,10 @@ const AgentHero = () => {
     }, [currAgent]);
 
     return (
-        <div className='w-full h-full flex flex-row justify-start items-center' ref={BackgroundRef}>
-            <AgentButton agents={agents} handleCurrentAgent={handleCurrentAgent} />
+        <div className='w-full h-full flex flex-col justify-center items-center' ref={BackgroundRef}>
+            
             <AgentDetails currAgent={currAgent} />
+            <AgentButton agents={agents} handleCurrentAgent={handleCurrentAgent} />
         </div>
     );
 };
