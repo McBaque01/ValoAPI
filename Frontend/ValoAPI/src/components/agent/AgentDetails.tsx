@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react'
 import { AgentType } from '../typings/agentTypes';
-import AgentButton from './AgentButton';
+
 
 interface AgentDetailsProps {
     currAgent: AgentType | null;

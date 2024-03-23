@@ -1,4 +1,4 @@
-import React from 'react'
+
 import AgentHero from '../components/agent/AgentHero'
 
 export const Hero = () => {

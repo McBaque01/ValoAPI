@@ -73,7 +73,7 @@
 // }
 
 // export default AgentHero;
-import React, { useState, useEffect, useRef } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import fetchAgents from '../APIs/fetchAgents';
 import { AgentType } from '../typings/agentTypes';
 import AgentButton from './AgentButton';
