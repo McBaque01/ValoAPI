@@ -7,23 +7,32 @@ interface AgentButtonProps {
 }
 const AgentButton : React.FC<AgentButtonProps> = ({agents, handleCurrentAgent}) => {
   return (
-    <>  <div className='flex flex-row justify-center flex-wrap w-[100%] h-[14em] gap-4 p-4 fixed overflow-y-scroll overflow-x-scroll bottom-[4em] z-40'>
+
+
+    <> 
+    
+    <div className='w-full h-full flex justify-end items-center'>
+       <div className='flex flex-wrap items-center justify-center w-[46%] h-fit gap-[1.4em] lg:h-[60%] sm:h-[65%] md:h-[65%] z-40 relative overflow-y-scroll py-2 px-4 scrollbar-thin scrollbar-thumb-ValoGreen scrollbar-track-transparent scrollbar-thumb-rounded-full'>
             {agents && agents.length > 0 && agents.map(agent => (
-                <div key={agent.uuid} className='border-2 hover:border-ValoGreen overflow-hidden h-[5em] w-[5em]'>
-                    <div className='h-[5em] w-[5em] hover:bg-slate-200 hover:scale-105' 
+                <div key={agent.uuid} className='border-2 hover:border-ValoGreen h-[3.3em] w-[6.4em] overflow-hidden'>
+                    <div className='h-fit w-fit hover:bg-slate-200 hover:scale-105' 
                             style={{
-                            backgroundImage: `url(${agent.displayIcon})`,
-                            backgroundSize:'cover',
+                            backgroundImage: `url(${agent.killfeedPortrait})`,
+                            backgroundSize:'contain',
+                            backgroundRepeat:'no-repeat',
                             
                             }}
                             onClick={() => handleCurrentAgent([agent])}
                             >
-                            <div className='absolute w-[7em] h-[7em] hover:bg-gradient-to-t from-ValoGreen from-30% via-transparent via-60% to-transparent hover:opacity-50'></div>
+                            <div className='h-[3em] w-[6em] hover:bg-gradient-to-t from-ValoGreen from-30% via-transparent via-60% to-transparent hover:opacity-50'></div>
                         </div>
                 </div>              
                 ))  
             }
         </div>
+
+
+    </div>
     </>
   )
 }

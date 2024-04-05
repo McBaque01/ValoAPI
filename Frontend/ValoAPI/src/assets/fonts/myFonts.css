@@ -1,0 +1,57 @@
+@font-face {
+    font-family: 'DinNextUltraLight'; /* You can name it whatever you like */
+    src: url('./din-next-w10-ultralight.ttf'); /* Adjust the path to your font file */
+    font-weight: normal;
+    font-style: normal;
+  }
+
+ @font-face {
+    font-family: 'DinNextLight'; /* You can name it whatever you like */
+    src: url('./din-next-w10-light.ttf'); /* Adjust the path to your font file */
+    font-weight: normal;
+    font-style: normal;
+  }
+
+  @font-face {
+    font-family: 'DinNextMedium'; /* You can name it whatever you like */
+    src: url('./din-next-w10-medium.ttf'); /* Adjust the path to your font file */
+    font-weight: normal;
+    font-style: normal;
+  }
+
+  @font-face {
+    font-family: 'DinNextRegular'; /* You can name it whatever you like */
+    src: url('./din-next-w10-regular.ttf'); /* Adjust the path to your font file */
+    font-weight: normal;
+    font-style: normal;
+  }
+
+  @font-face {
+    font-family: 'DinNextBold'; /* You can name it whatever you like */
+    src: url('./din-next-w10-bold.ttf'); /* Adjust the path to your font file */
+    font-weight: normal;
+    font-style: normal;
+  }
+
+  @font-face {
+    font-family: 'DinNextHeavy'; /* You can name it whatever you like */
+    src: url('./din-next-w10-heavy.ttf'); /* Adjust the path to your font file */
+    font-weight: normal;
+    font-style: normal;
+  }
+
+
+  @font-face {
+    font-family: 'Tungsten'; /* You can name it whatever you like */
+    src: url('C:\Users\User\Desktop\Learning\ValoAPI\Frontend\ValoAPI\src\assets\fonts\Tungsten Font\Tungsten-Bold\Tungsten-Bold.ttf'); /* Adjust the path to your font file */
+    font-weight: normal;
+    font-style: normal;
+  }
+
+  @font-face {
+    font-family: 'Valorant'; /* You can name it whatever you like */
+    src: url('C:\Users\User\Desktop\Learning\ValoAPI\Frontend\ValoAPI\src\assets\fonts\Valorant Font.ttf'); /* Adjust the path to your font file */
+    font-weight: normal;
+    font-style: normal;
+  }
+  

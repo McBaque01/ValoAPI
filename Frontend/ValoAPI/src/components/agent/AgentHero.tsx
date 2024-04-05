@@ -78,6 +78,7 @@ import fetchAgents from '../APIs/fetchAgents';
 import { AgentType } from '../typings/agentTypes';
 import AgentButton from './AgentButton';
 import AgentDetails from './AgentDetails';
+import AgentComponents from './AgentComponents';
 
 const AgentHero = () => {
     const BackgroundRef = useRef<HTMLDivElement>(null);
@@ -111,8 +112,8 @@ const AgentHero = () => {
             const gradient = currAgent.backgroundGradientColors;
             if (gradient && gradient.length >= 4) {
                 BackgroundRef.current.style.background =
-                    `linear-gradient(to top left, #${gradient[2]}, rgba(255, 153, 150, 0), #${gradient[0]}),
-                    linear-gradient(to top right, #${gradient[3]}, rgba(255, 153, 150, 0), #${gradient[1]})`;
+                    `linear-gradient(to top left, #${gradient[2]}, rgba(56, 56, 56, 0.2), #${gradient[0]}),
+                    linear-gradient(to top right, #${gradient[3]}, rgba(56, 56, 56, 0.2), #${gradient[1]})`;
             } else {
                 BackgroundRef.current.style.background = '';
             }
@@ -120,11 +121,16 @@ const AgentHero = () => {
     }, [currAgent]);
 
     return (
-        <div className='w-full h-full flex flex-col justify-center items-center' ref={BackgroundRef}>
+        <div className='w-full h-full overflow-hidden' ref={BackgroundRef} >
             
+           
+            {/* <AgentComponents/> */}
+            {/* <AgentButton agents={agents} handleCurrentAgent={handleCurrentAgent} /> */}
             <AgentDetails currAgent={currAgent} />
-            <AgentButton agents={agents} handleCurrentAgent={handleCurrentAgent} />
+
         </div>
+
+            
     );
 };
 
