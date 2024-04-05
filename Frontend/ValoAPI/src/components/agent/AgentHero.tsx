@@ -78,7 +78,7 @@ import fetchAgents from '../APIs/fetchAgents';
 import { AgentType } from '../typings/agentTypes';
 import AgentButton from './AgentButton';
 import AgentDetails from './AgentDetails';
-import AgentComponents from './AgentComponents';
+// import AgentComponents from './AgentComponents';
 
 const AgentHero = () => {
     const BackgroundRef = useRef<HTMLDivElement>(null);
@@ -121,12 +121,13 @@ const AgentHero = () => {
     }, [currAgent]);
 
     return (
-        <div className='w-full h-full overflow-hidden' ref={BackgroundRef} >
+        <div className='w-full h-fulloverflow-hidden' ref={BackgroundRef} >
             
-           
             {/* <AgentComponents/> */}
             {/* <AgentButton agents={agents} handleCurrentAgent={handleCurrentAgent} /> */}
-            <AgentDetails currAgent={currAgent} />
+            <AgentDetails currAgent={currAgent} handleCurrentAgent={handleCurrentAgent} agents={agents}/>
+           
+
 
         </div>
 

@@ -5,7 +5,7 @@ import { Icon } from '@iconify/react';
 
 export const Hero = () => {
   return (
-    <div className='w-full h-screen flex flex-col'>
+    <div className='w-full h-full flex flex-col'>
 
       <div className=' bg-ValoRed flex flex-row p-[1.4em] z-40'>
         <div className=' h-full w-full pl-[1em] flex flex-row gap-4 items-center'>
