@@ -76,7 +76,6 @@
 import { useState, useEffect, useRef } from 'react';
 import fetchAgents from '../APIs/fetchAgents';
 import { AgentType } from '../typings/agentTypes';
-import AgentButton from './AgentButton';
 import AgentDetails from './AgentDetails';
 // import AgentComponents from './AgentComponents';
 
