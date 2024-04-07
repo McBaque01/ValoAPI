@@ -14,18 +14,26 @@ interface AgentDetailsProps {
 
     },[currAgent])
 
+
+    console.log(agents)
     return (
         <>
             <div className="w-full h-screen relative">
               <div className='h-full w-full absolute overflow-hidden'>
 
                   <div className='w-full h-full flex flex-col p-2 gap-2'>
-                        <div className=' w-full h-full' ></div>
-                        <div className=' w-full h-[65%] flex '>
-                            
 
+                        <div className='w-full h-full  flex gap-2 relative z-40'>
+                            <div className='w-full h-fit flex gap-1 flex-col'>
+                              <h1 className='w-fit font-Poppins font-black tracking-[0.08em] text-[1.4em] text-ValoRed uppercase bg-ValoYellow px-2'>{currAgent !== null ? currAgent.role.displayName : null}</h1>
+                              <p className='font-Poppins font-medium text-slate-200 text-[0.7em] bg-opacity-25 bg-black uppercase p-1'>{currAgent !== null ? currAgent.role.description : null}</p>
+                            </div>
+                            <div className='w-[30%] h-full text-center font-bold'>SKILL</div>
                         </div>
-                        <div className=' w-full h-full flex flex-col items-end p-4'>
+
+                        <div className=' w-full h-[30%] '></div>
+
+                        <div className=' w-full h-full flex flex-col items-end p-4 '>
                           <div className='w-full h-full relative z-40 flex justify-end items-center'>
                                 <div>
                                   <p className='font-Tungsten text-8xl uppercase tracking-[0.08em] text-ValoRed 2xl:text-[20em] transition-all ease-in-out duration-300'>{currAgent !== null ? currAgent.displayName : null}</p>
