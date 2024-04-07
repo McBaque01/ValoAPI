@@ -8,11 +8,14 @@ export default {
     extend: {
       fontFamily: {
       'Valorant': ['Valorant', 'sans-serif'],
-      'Tungsten': ['DinNextBold', 'sans-serif']
+      'Tungsten': ['Tungsten', 'sans-serif']
+      
       },
       colors:{
         ValoRed:'#fd4556',
-        ValoGreen:'#3be0c3'
+        ValoGreen:'#3be0c3',
+        ValoYellow:'#EBEEB2',
+        ValoDark:'#2A2A34',
       },
 
       screens: {
