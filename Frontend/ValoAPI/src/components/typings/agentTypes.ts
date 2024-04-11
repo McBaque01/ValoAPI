@@ -1,3 +1,10 @@
+export interface Ability {
+    slot: string;
+    displayName: string;
+    description: string;
+    displayIcon: string;
+}
+
 export interface AgentType {
     id?: string;
     uuid: string;
@@ -18,12 +25,7 @@ export interface AgentType {
     isPlayableCharacter: boolean;
     isAvailableForTest: boolean;
     isBaseContent: boolean;
-    abilities: {
-        slot: string;
-        displayName: string;
-        description: string;
-        displayIcon: string;
-    };
+    abilities: Ability[];
     role: {
         uuid: string;
         displayName: string;

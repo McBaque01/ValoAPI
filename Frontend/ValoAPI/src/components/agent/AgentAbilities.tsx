@@ -1,6 +1,6 @@
 import React from 'react'
 import { AgentType } from '../typings/agentTypes';
-
+import { Ability } from '../typings/agentTypes';
 interface AgentSkillsProps {
     currAgent: AgentType | null;
     SetAbility: (title: string, description: string) => void;
@@ -29,7 +29,7 @@ export const AgentAbilities: React.FC<AgentSkillsProps> = ({currAgent, SetAbilit
                 </div>
 
                 <div className='flex flex-col gap-5 w-full'>
-                    {currAgent && currAgent != null && currAgent.abilities.map(ability => (
+                    {currAgent && currAgent != null && currAgent.abilities.map((ability: Ability) => (
                             <div key={ability.slot} className=' h-[4em] w-full relative overflow-hidden'>
                                 <div className='h-full w-full hover:scale-105' 
                                         style={{
