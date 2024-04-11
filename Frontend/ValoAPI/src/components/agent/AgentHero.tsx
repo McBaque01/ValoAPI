@@ -47,13 +47,7 @@ const AgentHero = () => {
 
     return (
         <div className='w-full h-fulloverflow-hidden' ref={BackgroundRef} >
-            
-            {/* <AgentComponents/> */}
-            {/* <AgentButton agents={agents} handleCurrentAgent={handleCurrentAgent} /> */}
             <AgentDetails currAgent={currAgent} handleCurrentAgent={handleCurrentAgent} agents={agents}/>
-           
-
-
         </div>
 
             

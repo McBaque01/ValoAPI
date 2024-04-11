@@ -1,6 +1,7 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import { AgentType } from '../typings/agentTypes';
 import AgentButton from './AgentButton';
+import { AgentAbilities } from './AgentAbilities';
 
 interface AgentDetailsProps {
     currAgent: AgentType | null;
@@ -8,11 +9,33 @@ interface AgentDetailsProps {
     handleCurrentAgent: (agent: AgentType[]) => void;
   }
 
+  interface AbilitiesState {
+    title: string;
+    description: string;
+  }
+
+
   const AgentDetails: React.FC<AgentDetailsProps> = ({ currAgent, handleCurrentAgent, agents }) => {
    
-    useEffect(()=>{
+    const [Abilities, SetAbilities] = useState<AbilitiesState>({
+      title:  currAgent ? currAgent.role.displayName : "",
+      description: currAgent ? currAgent.role.description: "",
+    });
 
-    },[currAgent])
+  useEffect(()=>{
+    SetAbilities({
+      title:  currAgent ? currAgent.role.displayName : "",
+      description: currAgent ? currAgent.role.description : "",
+    })
+  },[currAgent])
+
+
+  const SetAbility = (title: string, description: string): void => {
+     SetAbilities({
+      title: title,
+      description: description,
+     })
+  }
 
 
     console.log(agents)
@@ -23,21 +46,31 @@ interface AgentDetailsProps {
 
                   <div className='w-full h-full flex flex-col p-2 gap-2'>
 
-                        <div className='w-full h-full  flex gap-2 relative z-40'>
-                            <div className='w-full h-fit flex gap-1 flex-col'>
-                              <h1 className='w-fit font-Poppins font-black tracking-[0.08em] text-[1.4em] text-ValoRed uppercase bg-ValoYellow px-2'>{currAgent !== null ? currAgent.role.displayName : null}</h1>
-                              <p className='font-Poppins font-medium text-slate-200 text-[0.7em] bg-opacity-25 bg-black uppercase p-1'>{currAgent !== null ? currAgent.role.description : null}</p>
+                        <div className='w-full h-full flex gap-2 relative z-40 flex-row xl:justify-end 2xl:justify-end '>
+                            <div className='w-full xl:w-[40%] 2xl:w-[40%] h-fit flex gap-1 flex-col p-1'>
+
+                              <h1 className='w-fit font-Poppins font-black tracking-[0.08em] text-[1.4em] text-ValoRed uppercase bg-ValoDark px-2 bg-opacity-75'>
+                                {Abilities.title}
+                                
+                              </h1>
+
+                              <p className='w-fit font-Poppins font-black text-ValoDark text-[0.7em] uppercase p-1 border-b-[0.1em] border-y-white-900'>
+                                {Abilities.description}
+                              </p>
+
                             </div>
-                            <div className='w-[30%] h-full text-center font-bold'>SKILL</div>
+                            <div className='min-w-[7em] max-w-[10em] w-[10em] h-full text-center font-bold  p-2'>
+                              <AgentAbilities currAgent={currAgent} SetAbility={SetAbility}/>
+                            </div>
                         </div>
 
-                        <div className=' w-full h-[30%] '></div>
+                       
 
-                        <div className=' w-full h-full flex flex-col items-end p-4 '>
-                          <div className='w-full h-full relative z-40 flex justify-end items-center'>
-                                <div>
-                                  <p className='font-Tungsten text-8xl uppercase tracking-[0.08em] text-ValoRed 2xl:text-[20em] transition-all ease-in-out duration-300'>{currAgent !== null ? currAgent.displayName : null}</p>
-                                  <p className='font-Tungsten text-6xl tracking-widest uppercase text-ValoYellow 2xl:text-[12em] transition-all ease-in-out duration-300'>{currAgent !== null ? currAgent.role.displayName : null}</p>
+                        <div className=' w-full h-full flex flex-col items-end '>
+                          <div className='w-full h-full relative z-40 flex justify-end items-end'>
+                                <div className='sm:w-[70%]  md:w-[65%] lg:w-[60%] 2xl:w-[50%] xl:w-[50%] h-fit flex flex-col items-center'>
+                                  <p className='font-Tungsten text-8xl uppercase tracking-[0.08em] text-ValoRed 2xl:text-[12em]  transition-all ease-in-out duration-300'>{currAgent !== null ? currAgent.displayName : null}</p>
+                                  <p className='font-Tungsten text-6xl tracking-widest uppercase text-ValoYellow 2xl:text-[8em]  transition-all ease-in-out duration-300'>{currAgent !== null ? currAgent.role.displayName : null}</p>
                                 </div>
                           </div>
                           <AgentButton handleCurrentAgent={handleCurrentAgent} agents={agents}/>
@@ -55,7 +88,7 @@ interface AgentDetailsProps {
                      }}
                   ></div>
                   
-                  <div className='w-[40em] h-full absolute top-[28em] left-1/3 transform -translate-x-1/2 -translate-y-1/2 z-30 overflow-hidden'
+                  <div className='w-[54em] h-full absolute top-[28em] left-1/3 transform -translate-x-1/2 -translate-y-1/2 z-30 overflow-hidden'
       
                     style={{
                       backgroundImage: `url(${currAgent !== null ? currAgent.fullPortrait : null})`,

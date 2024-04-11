@@ -12,6 +12,7 @@
 /* Track */
 ::-webkit-scrollbar-track {
     background: #2A2A34;
+    height: 0.1em;
 }
  
 /* Handle */
@@ -27,6 +28,6 @@
 
 @media only screen and (max-width: 600px) {
     ::-webkit-scrollbar {
-        height: 0.2em;
+        height: 0.1em;
     }
   }
