@@ -44,9 +44,9 @@ const AgentHero = () => {
             }
         }
     }, [currAgent]);
-
+    console.log(agents)
     return (
-        <div className='w-full h-fulloverflow-hidden' ref={BackgroundRef} >
+        <div className='w-full h-fit overflow-hidden' ref={BackgroundRef} >
             <AgentDetails currAgent={currAgent} handleCurrentAgent={handleCurrentAgent} agents={agents}/>
         </div>
 
