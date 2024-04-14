@@ -8,8 +8,10 @@ export default {
     extend: {
       fontFamily: {
       'Valorant': ['Valorant', 'sans-serif'],
-      'Tungsten': ['Tungsten', 'sans-serif']
-      
+      'Tungsten': ['Tungsten', 'sans-serif'],
+      'DinUL': ['DinNextUltraLight', 'sans-serif'],
+      'DinHeavy': ['DinNextHeavy', 'sans-serif'],
+      'DinRegular': ['DinNextRegular', 'sans-serif'],
       },
       colors:{
         ValoRed:'#fd4556',
