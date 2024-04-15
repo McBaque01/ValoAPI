@@ -47,9 +47,9 @@ interface AgentDetailsProps {
                   <div className='w-full h-full flex flex-col p-2'>
 
                         <div className='w-full h-fit relative flex justify-end 2xl:items-center xl:items-center '>
-                          <div className='w-full md:w-[65%] lg:w-[60%] 2xl:w-[50%] xl:w-[50%] h-fit flex flex-col  2xl:items-center xl:items-center items-end p-4'>
-                            <p className='font-Tungsten text-8xl uppercase tracking-[0.08em] text-ValoRed 2xl:text-[12em] relative z-40 w-fit transition-all ease-in-out duration-300'>{currAgent !== null ? currAgent.displayName : null}</p>
-                            <p className='font-Tungsten text-6xl tracking-widest uppercase text-ValoYellow 2xl:text-[8em]  relative z-30 transition-all ease-in-out duration-300'>{currAgent !== null ? currAgent.role.displayName : null}</p>
+                          <div className='w-full md:w-[65%] lg:w-[60%] 2xl:w-[50%] xl:w-[50%] h-fit flex flex-col 2xl:items-center xl:items-center items-end p-4gap-1 pt-[2em]'>
+                            <p className='font-Tungsten text-8xl uppercase tracking-[0.08em] text-ValoRed 2xl:text-[12em] relative z-40 w-fit transition-all ease-in-out duration-300 '>{currAgent !== null ? currAgent.displayName : null}</p>
+                            <p className='font-Tungsten text-6xl tracking-widest uppercase text-ValoYellow 2xl:text-[8em]  relative z-30 transition-all ease-in-out duration-300 '>{currAgent !== null ? currAgent.role.displayName : null}</p>
                           </div>
                         </div>
 
@@ -66,7 +66,7 @@ interface AgentDetailsProps {
                                 <h1 className='w-fit font-Poppins font-black tracking-[0.08em] text-[1.4em] xl:text-[1em] 2xl:text-[2em] text-ValoRed uppercase bg-ValoDark px-2 bg-opacity-75'>
                                   {Abilities.title}
                                 </h1>
-                                <p className='w-fit font-Poppins font-black text-ValoYellow text-[0.7em] xl:text-[1.2em] 2xl:text-[1.4em] uppercase p-1 tracking-widest border-y-white-900'>
+                                <p className='w-fit font-Poppins font-black text-ValoYellow text-[0.7em] xl:text-[1em] 2xl:text-[1em] uppercase p-1 tracking-widest border-y-white-900'>
                                   {Abilities.description}
                                 </p>
                           </div>

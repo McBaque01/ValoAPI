@@ -31,12 +31,13 @@ export const AgentAbilities: React.FC<AgentSkillsProps> = ({currAgent, SetAbilit
                         >
                     </div>
 
-                    {currAgent && currAgent != null && currAgent.abilities.map((ability: Ability) => (
-                            <div key={ability.slot} className='w-[3.4em] xl:w-[10em] 2xl:w-[10em] h-[3.4em] xl:h-[5em] 2xl:h-[5em] transition-all ease-in-out duration-300 active:scale-[1.3]'>
+                    {currAgent && currAgent != null && currAgent.abilities.map((ability: Ability, index: number) => (
+                            <div key={ability.slot} className='w-[3.4em] xl:w-[10em] 2xl:w-[10em] h-[3.4em] xl:h-[5em] 2xl:h-[5em] transition-all ease-in-out active:scale-[1.3]'>
 
                                 {ability.displayIcon ? 
 
-                                <div className='h-full w-full hover:scale-105' 
+                                <div className='h-full w-full hover:scale-105 transition-all ease-in-out active:scale-[1.3]
+                            duration-[`${300 + (index * (1000 / currAgent.abilities.length))}`' 
                                         style={{
                                         backgroundImage:`url(${ability.displayIcon})`,
                                         backgroundSize:'contain',
@@ -56,10 +57,6 @@ export const AgentAbilities: React.FC<AgentSkillsProps> = ({currAgent, SetAbilit
                                 
                                 
                                 }
-
-
-
-                                
                             </div>              
                             ))  
                         }

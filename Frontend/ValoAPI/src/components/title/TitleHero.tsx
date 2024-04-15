@@ -2,6 +2,6 @@
 
 export const TitleHero = () => {
   return (
-    <div>TitleHero</div>
+    <div className="w-full h-screen">TitleHero</div>
   )
 }

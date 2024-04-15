@@ -2,6 +2,6 @@
 
 export const SprayHero = () => {
   return (
-    <div>SprayHero</div>
+    <div className="w-full h-screen">SprayHero</div>
   )
 }

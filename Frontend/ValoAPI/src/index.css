@@ -11,7 +11,7 @@
  
 /* Track */
 ::-webkit-scrollbar-track {
-    background: #2A2A34;
+    background: transparent;
     height: 0.1em;
 }
  

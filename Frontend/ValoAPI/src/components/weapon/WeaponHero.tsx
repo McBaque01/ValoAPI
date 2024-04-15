@@ -1,6 +1,6 @@
 
 export const WeaponHero = () => {
   return (
-    <div>WeaponHero</div>
+    <div className="w-full h-screen">WeaponHero</div>
   )
 }

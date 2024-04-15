@@ -1,6 +1,6 @@
 
 export const BuddiesHero = () => {
   return (
-    <div>BuddiesHero</div>
+    <div className="w-full h-screen">BuddiesHero</div>
   )
 }

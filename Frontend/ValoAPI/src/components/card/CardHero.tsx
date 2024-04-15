@@ -2,6 +2,6 @@
 
 export const CardHero = () => {
   return (
-    <div>CardHero</div>
+    <div className="w-full h-screen">CardHero</div>
   )
 }
