@@ -32,7 +32,7 @@ export const AgentAbilities: React.FC<AgentSkillsProps> = ({currAgent, SetAbilit
                     </div>
 
                     {currAgent && currAgent != null && currAgent.abilities.map((ability: Ability, index: number) => (
-                            <div key={ability.slot} className='w-[3.4em] xl:w-[10em] 2xl:w-[10em] h-[3.4em] xl:h-[5em] 2xl:h-[5em] transition-all ease-in-out active:scale-[1.3]'>
+                            <div key={index} className='w-[3.4em] xl:w-[10em] 2xl:w-[10em] h-[3.4em] xl:h-[5em] 2xl:h-[5em] transition-all ease-in-out active:scale-[1.3]'>
 
                                 {ability.displayIcon ? 
 
