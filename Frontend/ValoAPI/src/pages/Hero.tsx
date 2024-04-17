@@ -21,7 +21,7 @@ export const Hero = () => {
   const handlePageChange = (page: string) => {
     console.log(page);
     setActivePage(page);
-    
+
   };
 
   
@@ -40,27 +40,27 @@ export const Hero = () => {
 
           <div className='  w-[90%] h-full flex flex-row justify-center  lg:hidden sm:hidden md:hidden'>
             <ul className='h-fit w-full flex flex-row justify-evenly lg:hidden sm:hidden md:hidden text-ValoYellow font-DinRegular uppercase text-[0.9em] font-black tracking-widest'>
-              <li  className="cursor-pointer" onClick={() => handlePageChange('agent')}>AGENTS</li>
-              <li   className="cursor-pointer" onClick={() => handlePageChange('weapon')}>Weapons</li>
-              <li   className="cursor-pointer" onClick={() => handlePageChange('buddy')}>Buddies</li>
-              <li  className="cursor-pointer" onClick={() => handlePageChange('card')}>Cards</li>
-              <li   className="cursor-pointer" onClick={() => handlePageChange('title')}>Titles</li>
-              <li  className="cursor-pointer" onClick={() => handlePageChange('spray')}>Sprays</li>
+              <li  className={`cursor-pointer ${activePage === "agent" ? "text-ValoGreen" : ""}`} onClick={() => handlePageChange('agent')}>AGENTS</li>
+              <li  className={`cursor-pointer ${activePage === "weapon" ? "text-ValoGreen" : ""}`} onClick={() => handlePageChange('weapon')}>Weapons</li>
+              <li  className={`cursor-pointer ${activePage === "buddy" ? "text-ValoGreen" : ""}`} onClick={() => handlePageChange('buddy')}>Buddies</li>
+              <li  className={`cursor-pointer ${activePage === "card" ? "text-ValoGreen" : ""}`} onClick={() => handlePageChange('card')}>Cards</li>
+              <li  className={`cursor-pointer ${activePage === "title" ? "text-ValoGreen" : ""}`} onClick={() => handlePageChange('title')}>Titles</li>
+              <li  className={`cursor-pointer ${activePage === "spray" ? "text-ValoGreen" : ""}`} onClick={() => handlePageChange('spray')}>Sprays</li>
             </ul>
           </div>
 
         </div>
       </div>
-      <div className='w-full h-fit relative'>
+      <div className='w-full h-full relative'>
 
         <div className='absolute xl:hidden 2xl:hidden z-40 w-full h-fit flex flex-col items-center justify-center'>
             <ul className='h-fit w-full flex flex-row flex-nowrap justify-start items-center xl:hidden 2xl:hidden bg-transparent gap-1 p-2 overflow-x-scroll lg:overflow-hidden relative text-[0.9em] font-black font-DinRegular text-ValoYellow uppercase tracking-widest'>
-              <li className='w-fit h-full bg-slate-700 rounded-full px-[0.6em] py-[0.2em] cursor-pointer active:text-ValoGreen' onClick={() => handlePageChange('agent')}>Agents</li>
-              <li className='w-fit bg-slate-700 rounded-full px-[0.6em] py-[0.2em] cursor-pointer active:text-ValoGreen' onClick={() => handlePageChange('weapon')}>Weapons</li>
-              <li  className='w-fit bg-slate-700 rounded-full px-[0.6em] py-[0.2em] cursor-pointer active:text-ValoGreen ' onClick={() => handlePageChange('buddy')}>Buddies</li>
-              <li  className='w-fit bg-slate-700 rounded-full px-[0.6em] py-[0.2em] cursor-pointer active:text-ValoGreen 'onClick={() => handlePageChange('card')}>Cards</li>
-              <li className='w-fit bg-slate-700 rounded-full px-[0.6em] py-[0.2em] cursor-pointer active:text-ValoGreen '  onClick={() => handlePageChange('title')}>Titles</li>
-              <li  className='w-fit bg-slate-700 rounded-full px-[0.6em] py-[0.2em] cursor-pointer active:text-ValoGreen' onClick={() => handlePageChange('spray')}>Sprays</li>
+              <li className={`w-fit h-full bg-slate-700 rounded-full px-[0.6em] py-[0.2em] text-[0.9em] cursor-pointer ${activePage === 'agent' ? 'bg-ValoGreen text-ValoDark' : 'bg-slate-700 text-ValoYellow'}`} onClick={() => handlePageChange('agent')}>Agents</li>
+              <li className={`w-fit h-full bg-slate-700 rounded-full px-[0.6em] py-[0.2em] text-[0.9em] cursor-pointer ${activePage === 'weapon' ? 'bg-ValoGreen text-ValoDark' : 'bg-slate-700 text-ValoYellow'}`} onClick={() => handlePageChange('weapon')}>Weapons</li>
+              <li className={`w-fit h-full bg-slate-700 rounded-full px-[0.6em] py-[0.2em] text-[0.9em] cursor-pointer ${activePage === 'buddy' ? 'bg-ValoGreen text-ValoDark' : 'bg-slate-700 text-ValoYellow'}`} onClick={() => handlePageChange('buddy')}>Buddies</li>
+              <li className={`w-fit h-full bg-slate-700 rounded-full px-[0.6em] py-[0.2em] text-[0.9em] cursor-pointer ${activePage === 'card' ? 'bg-ValoGreen text-ValoDark' : 'bg-slate-700 text-ValoYellow'}`} onClick={() => handlePageChange('card')}>Cards</li>
+              <li className={`w-fit h-full bg-slate-700 rounded-full px-[0.6em] py-[0.2em] text-[0.9em] cursor-pointer ${activePage === 'title' ? 'bg-ValoGreen text-ValoDark' : 'bg-slate-700 text-ValoYellow'}`} onClick={() => handlePageChange('title')}>Titles</li>
+              <li className={`w-fit h-full bg-slate-700 rounded-full px-[0.6em] py-[0.2em] text-[0.9em] cursor-pointer ${activePage === 'spray' ? 'bg-ValoGreen text-ValoDark' : 'bg-slate-700 text-ValoYellow'}`}  onClick={() => handlePageChange('spray')}>Sprays</li>
             </ul>
         </div>
 
