@@ -22,7 +22,7 @@ export const WeaponHero = () => {
   console.log(Weapons);
 
   return (
-    <div className="w-full 2xl:h-screen xl:h-screen h-fit relative 2xl:pt-2 xl:pt-2 pt-[4em] p-2
+    <div className="w-full h-fit relative 2xl:pt-2 xl:pt-2 pt-[4em] p-4
     after:content-[''] 
     after:absolute 
     after:w-full 
