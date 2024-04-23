@@ -51,7 +51,7 @@ export const WeaponUI : React.FC<WeaponUITypes> = ({Weapon, handleWeapon}) => {
   console.log(WeaponData !== null && WeaponData.skins, "WEAPONS DATA!");
   console.log(currSkin, "Current SKIN!")
   return (
-    <div className={`${!Weapon.isTrigger?"hidden":"relative"} w-full h-fit bg-ValoDarkViolet z-50 py-4`}> 
+    <div className={`${!Weapon.isTrigger?"hidden":"relative"} w-full h-screen bg-ValoDarkViolet z-50 py-4`}> 
       
       {currSkin && currSkin !== null && currSkin.displayName}
     
@@ -60,9 +60,9 @@ export const WeaponUI : React.FC<WeaponUITypes> = ({Weapon, handleWeapon}) => {
 
     <div onClick={()=>handleWeapon()}>ClickME</div>
     <div className=' bg-ValoLightViolet p-4'>
-      <div className='flex flex-col gap-2'>
+      <div className='flex flex-row gap-2 flex-wrap'>
       {WeaponData && WeaponData.skins !== null && WeaponData.skins.map((skin,id )=> (
-        <div key={id} className='bg-red-300' onClick={()=>{handleWeaponSkin(skin)}}>
+        <div key={id} className='bg-red-300 w-fit' onClick={()=>{handleWeaponSkin(skin)}}>
           <p>{skin.displayName}</p>
           
         </div>
