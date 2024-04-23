@@ -18,6 +18,9 @@ export default {
         ValoGreen:'#3be0c3',
         ValoYellow:'#EBEEB2',
         ValoDark:'#2A2A34',
+        ValoDarkViolet:'#2a2b44',
+        ValoLightViolet: '#c7afe8',
+        ValoDarkYellow: '#2e2d3b',
       },
 
       screens: {

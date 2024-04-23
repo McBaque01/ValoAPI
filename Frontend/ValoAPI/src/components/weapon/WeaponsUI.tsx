@@ -7,6 +7,7 @@ interface WeaponUITypes{
 
 export const WeaponsUI: React.FC<WeaponUITypes> = ({Weapons, handleWeapon}) => {
   return (
+    
     <div className="w-full h-fit relative 2xl:p-[3em] xl:pt-2 py-[4em]
           after:content-[''] 
           after:absolute 

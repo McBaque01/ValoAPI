@@ -4,8 +4,6 @@ import { WeaponType } from "../typings/weaponTypes"
 import { WeaponsUI } from "./WeaponsUI"
 import { WeaponUI } from "./WeaponUI"
 
-
-
 export const WeaponHero = () => {
 
   interface weaponTriggerType{
