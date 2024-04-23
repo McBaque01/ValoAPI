@@ -27,7 +27,7 @@ interface levelsType{
 
 }
 
-interface skinsType{
+export interface skinsType{
     uuid:string;
     displayName: string;
     themeUuid: string;

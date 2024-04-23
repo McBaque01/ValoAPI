@@ -1,6 +1,6 @@
 import React, {useState, useEffect}from 'react'
-import { WeaponType } from '../typings/weaponTypes'
-import { skinsType } from '../typings/weaponTypes'
+import { WeaponType,  skinsType } from '../typings/weaponTypes'
+
 
 interface WeaponUITypes{
     Weapon: weaponTriggerType,
