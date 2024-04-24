@@ -12,34 +12,50 @@ interface weaponTriggerType{
     isTrigger: boolean;
 }
 
-const handleSkin = (skins: skinsType[] | null) => {
-
-  if(skins){
-    for(let i = 0; i < skins.length; i++){
-      if(skins && skins[i].displayName.includes("Standard")){
-        skins.unshift(skins[i]);
-        skins.splice(i,1)
-
-        break;
-
-      }else{
-        continue;
-      }
-    }
-  }
-
-}
-
 interface currSkinType {
   skins: skinsType | null;
   displayName: string;
   imagePath: string | null;
 }
 
+
+
+const handleSkin = (skins: skinsType[] | null) => {
+
+  if(skins){
+    for(let i = 0; i < skins.length; i++){
+      if(skins && skins[i].displayName.includes("Standard")){
+        skins.unshift(skins[i]);
+        skins.splice(i + 1,1)
+        break;
+      }else{
+        continue;
+      }
+    }
+  }
+
+  removeRandomSkin(skins);
+  
+}
+
+const removeRandomSkin = (skins: skinsType[] | null) =>{
+  if(skins){
+    for(let i = 0; i < skins.length; i++){
+      if(skins && skins[i].displayName.includes("Random")){
+        skins.splice(i,1)
+        break;
+      }else{
+        continue;
+      }
+    }
+  }
+}
+
+
 export const WeaponUI : React.FC<WeaponUITypes> = ({Weapon, handleWeapon}) => {
 
   const WeaponData = Weapon.weaponData;
-
+console.log(WeaponData, "Initial Weapon DATA")
   
   const [currSkin, SetCurrSkin] = useState<currSkinType>({
     skins: null,
@@ -51,15 +67,21 @@ export const WeaponUI : React.FC<WeaponUITypes> = ({Weapon, handleWeapon}) => {
   const [currChroma, setCurrChroma] = useState<chromasType[] | null | undefined>(null);
 
   useEffect(() =>{
+   
     handleSkin(WeaponData ? WeaponData.skins : null);
+  
     SetCurrSkin({
-      skins:WeaponData ? WeaponData.skins[0] : null,
-      displayName:WeaponData ? WeaponData.skins[0].displayName : "",
-      imagePath:WeaponData ? WeaponData.skins[0].chromas[0].fullRender : "",
-    })
-    setCurrChroma(WeaponData ? WeaponData.skins[0].chromas : null);
-    // SetCurrSkin(WeaponData ? WeaponData.skins[0] : null)
-  },[Weapon])
+        skins: WeaponData ? WeaponData.skins[0] : null,
+        displayName: WeaponData ? WeaponData.skins[0]?.displayName : "",
+        imagePath: WeaponData ? WeaponData.skins[0]?.chromas[0].fullRender : "",
+      });
+      setCurrChroma(WeaponData ? WeaponData.skins[0]?.chromas : null);
+  
+  
+
+
+  // SetCurrSkin(WeaponData ? WeaponData.skins[0] : null)
+},[Weapon])
 
   const handleWeaponSkin = (displayname: string, image: string | null, currentChroma?: chromasType[]) => {
    SetCurrSkin(prevState => ({
