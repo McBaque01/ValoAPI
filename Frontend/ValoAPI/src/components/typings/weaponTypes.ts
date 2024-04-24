@@ -7,7 +7,7 @@ interface damageRangesType{
     legDamage: number;
 }
 
-interface chromasType {
+export interface chromasType {
     uuid: string;
     displayName: string;
     displayIcon: string | null;

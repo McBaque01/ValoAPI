@@ -1,6 +1,6 @@
 import React, {useState, useEffect}from 'react'
-import { WeaponType,  skinsType } from '../typings/weaponTypes'
-
+import { WeaponType,  chromasType,  skinsType } from '../typings/weaponTypes'
+import { Chromas } from './Chromas'
 
 interface WeaponUITypes{
     Weapon: weaponTriggerType,
@@ -30,39 +30,75 @@ const handleSkin = (skins: skinsType[] | null) => {
 
 }
 
+interface currSkinType {
+  skins: skinsType | null;
+  displayName: string;
+  imagePath: string | null;
+}
+
 export const WeaponUI : React.FC<WeaponUITypes> = ({Weapon, handleWeapon}) => {
 
   const WeaponData = Weapon.weaponData;
 
   
-  const [currSkin, SetCurrSkin] = useState<skinsType | null>(null);
+  const [currSkin, SetCurrSkin] = useState<currSkinType>({
+    skins: null,
+    displayName: "",
+    imagePath: "",
+   
+  });
 
-  useEffect(()=>{
+  const [currChroma, setCurrChroma] = useState<chromasType[] | null | undefined>(null);
+
+  useEffect(() =>{
     handleSkin(WeaponData ? WeaponData.skins : null);
-    SetCurrSkin(WeaponData ? WeaponData.skins[0] : null)
+    SetCurrSkin({
+      skins:WeaponData ? WeaponData.skins[0] : null,
+      displayName:WeaponData ? WeaponData.skins[0].displayName : "",
+      imagePath:WeaponData ? WeaponData.skins[0].chromas[0].fullRender : "",
+    })
+    setCurrChroma(WeaponData ? WeaponData.skins[0].chromas : null);
+    // SetCurrSkin(WeaponData ? WeaponData.skins[0] : null)
   },[Weapon])
 
-  const handleWeaponSkin = (skins: skinsType) => {
-   SetCurrSkin(skins)
+  const handleWeaponSkin = (displayname: string, image: string | null, currentChroma?: chromasType[]) => {
+   SetCurrSkin(prevState => ({
+    ...prevState,
+    displayName: displayname,
+    imagePath:image
+    }))
+    setCurrChroma(currentChroma)
   }
 
 
+  const handleDisplay = (displayname: string, image: string | null,) =>{
+    SetCurrSkin(prevState => ({
+      ...prevState,
+      displayName: displayname,
+      imagePath:image,
+      }))
+  }
+
+  
   console.log(Weapon, "WEAPON!");
   console.log(WeaponData !== null && WeaponData.skins, "WEAPONS DATA!");
   console.log(currSkin, "Current SKIN!")
+  console.log(currChroma, "CHROOOMAS")
   return (
-    <div className={`${!Weapon.isTrigger?"hidden":"relative"} w-full h-screen bg-ValoDarkViolet z-50 py-4`}> 
+    <div className={`${!Weapon.isTrigger?"hidden":"relative"} w-full h-fit bg-ValoDarkViolet z-50 py-4`}> 
       
       {currSkin && currSkin !== null && currSkin.displayName}
-    
+      <div className="">
+          <img className="h-auto max-w-full" src={currSkin.imagePath || undefined} alt="image description"/>
+      </div>
 
 
 
-    <div onClick={()=>handleWeapon()}>ClickME</div>
+    <div onClick={()=>handleWeapon()}>Close</div>
     <div className=' bg-ValoLightViolet p-4'>
       <div className='flex flex-row gap-2 flex-wrap'>
       {WeaponData && WeaponData.skins !== null && WeaponData.skins.map((skin,id )=> (
-        <div key={id} className='bg-red-300 w-fit' onClick={()=>{handleWeaponSkin(skin)}}>
+        <div key={id} className='bg-red-300 w-fit' onClick={()=>{handleWeaponSkin(skin.displayName, skin.chromas[0].fullRender, skin.chromas)}}>
           <p>{skin.displayName}</p>
           
         </div>
@@ -71,7 +107,7 @@ export const WeaponUI : React.FC<WeaponUITypes> = ({Weapon, handleWeapon}) => {
     </div>
       
 
-    
+    <Chromas chromas={currChroma} handleDisplay={handleDisplay}/>
   </div> 
   )
 }
