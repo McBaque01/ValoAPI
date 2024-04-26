@@ -32,7 +32,7 @@ export const WeaponsUI: React.FC<WeaponUITypes> = ({Weapons, handleWeapon}) => {
                 <h1 className="text-ValoGreen text-[2em] font-DinHeavy tracking-wide">PISTOLS</h1>
               </div>
 
-              <div className="flex flex-col gap-2">
+              <div className="flex flex-col gap-2 ">
                 {Weapons && Weapons.filter(weapon => weapon.shopData && weapon.shopData.category === 'Pistols').map(weapon => (
                     <div key={weapon.uuid} onClick={()=>handleWeapon(weapon)} className="text-ValoYellow bg-zinc-900 p-4 flex justify-center flex-col items-center gap-2">
 

@@ -2,6 +2,8 @@ import React, {useState, useEffect}from 'react'
 import { WeaponType,  chromasType,  skinsType } from '../typings/weaponTypes'
 import { Chromas } from './Chromas'
 
+import { Icon } from '@iconify/react';
+
 interface WeaponUITypes{
     Weapon: weaponTriggerType,
     handleWeapon: (weapon?: WeaponType | undefined) => void;
@@ -107,29 +109,74 @@ console.log(WeaponData, "Initial Weapon DATA")
   console.log(currSkin, "Current SKIN!")
   console.log(currChroma, "CHROOOMAS")
   return (
-    <div className={`${!Weapon.isTrigger?"hidden":"relative"} w-full h-fit bg-ValoDarkViolet z-50 py-4`}> 
-      
-      {currSkin && currSkin !== null && currSkin.displayName}
-      <div className="">
-          <img className="h-auto max-w-full" src={currSkin.imagePath || undefined} alt="image description"/>
-      </div>
+    <div className={`${!Weapon.isTrigger?"hidden":"relative"} w-full h-screen bg-ValoDarkViolet z-50 py-4`}> 
 
-
-
-    <div onClick={()=>handleWeapon()}>Close</div>
-    <div className=' bg-ValoLightViolet p-4'>
-      <div className='flex flex-row gap-2 flex-wrap'>
-      {WeaponData && WeaponData.skins !== null && WeaponData.skins.map((skin,id )=> (
-        <div key={id} className='bg-red-300 w-fit' onClick={()=>{handleWeaponSkin(skin.displayName, skin.chromas[0].fullRender, skin.chromas)}}>
-          <p>{skin.displayName}</p>
-          
+        <div onClick={()=>handleWeapon()} className=' w-fit h-fit absolute top-0 right-6 z-40'>
+          <Icon icon="mdi:close-thick" width="30" height="50" color='#fd4556' />
         </div>
-      ))}
+
+      <div className='relative p-4'>
+
+        {currSkin && currSkin !== null && currSkin.displayName}
+        <div className="bg-white bg-opacity-5 relative flex justify-center h-[20em] p-[5em]">
+            <img className="h-[14em] min-w-[25em] max-w-[30em] object-contain" src={currSkin.imagePath || undefined} alt="image description"/>
+            <Chromas chromas={currChroma} handleDisplay={handleDisplay}/>
+        </div>
+       
+
       </div>
-    </div>
+
+
+      <div>
+
+        <div>
+
+          <div>
+
+          </div>
+
+          <div>
+            
+          </div>
+
+
+
+        </div>
+
+      
+          <div className='flex flex-row gap-2 flex-nowrap overflow-x-scroll p-2 relative left-10'>
+          {WeaponData && WeaponData.skins !== null && WeaponData.skins.map((skin,id )=> (
+            <div key={id} className='bg-red-300 relative min-w-[10em]' onClick={()=>{handleWeaponSkin(skin.displayName, skin.chromas[0].fullRender, skin.chromas)}}>
+              <div>
+                <img  src={skin.chromas[0].fullRender} alt={skin.displayName} />
+              </div>
+              <p>{skin.displayName}</p>
+            </div>
+          ))}
+          </div>
+       
+
+
+      </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
       
 
-    <Chromas chromas={currChroma} handleDisplay={handleDisplay}/>
+    
   </div> 
   )
 }
