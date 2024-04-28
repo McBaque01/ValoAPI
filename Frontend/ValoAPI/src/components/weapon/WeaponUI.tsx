@@ -1,4 +1,4 @@
-import React, {useState, useEffect, useRef}from 'react'
+import React, {useState, useEffect}from 'react'
 import { WeaponType,  chromasType,  skinsType } from '../typings/weaponTypes'
 import { Chromas } from './Chromas'
 
@@ -70,10 +70,10 @@ const removeRandomSkin = (skins: skinsType[] | null) =>{
 
 export const WeaponUI : React.FC<WeaponUITypes> = ({Weapon, handleWeapon}) => {
 
-  const BGRef = useRef(null);
+  
 
   const WeaponData = Weapon.weaponData;
-console.log(WeaponData, "Initial Weapon DATA")
+// console.log(WeaponData, "Initial Weapon DATA")
   
   const [currSkin, SetCurrSkin] = useState<currSkinType>({
     skins: null,
@@ -132,7 +132,7 @@ console.log(WeaponData, "Initial Weapon DATA")
   const handleContentLevel = async (ContentUUID: string | null):Promise<ContentTierType | null> => {
     try {
       const res = await axios.get(`https://valorant-api.com/v1/contenttiers/${ContentUUID}`);
-      console.log(res);
+      // console.log(res);
   
       // Assuming the response contains a data property with the string you need
       const data: ContentTierType = res.data.data;
@@ -146,10 +146,10 @@ console.log(WeaponData, "Initial Weapon DATA")
   }
 
   
-  console.log(Weapon, "WEAPON!");
-  console.log(WeaponData !== null && WeaponData.skins, "WEAPONS DATA!");
-  console.log(currSkin, "Current SKIN!")
-  console.log(currChroma, "CHROOOMAS")
+  // console.log(Weapon, "WEAPON!");
+  // console.log(WeaponData !== null && WeaponData.skins, "WEAPONS DATA!");
+  // console.log(currSkin, "Current SKIN!")
+  // console.log(currChroma, "CHROOOMAS")
   return (
     <div className={`${!Weapon.isTrigger?"hidden":"relative"} w-full h-screen bg-ValoDarkViolet z-50 py-6`}> 
 

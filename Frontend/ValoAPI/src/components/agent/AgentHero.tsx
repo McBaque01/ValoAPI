@@ -45,7 +45,7 @@ const AgentHero = () => {
         }
     }, [currAgent]);
 
-    console.log(agents)
+    // console.log(agents)
    
     return (
         <div className='w-full h-fit overflow-hidden' ref={BackgroundRef} >
