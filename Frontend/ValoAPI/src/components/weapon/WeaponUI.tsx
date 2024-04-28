@@ -151,28 +151,27 @@ console.log(WeaponData, "Initial Weapon DATA")
   console.log(currSkin, "Current SKIN!")
   console.log(currChroma, "CHROOOMAS")
   return (
-    <div className={`${!Weapon.isTrigger?"hidden":"relative"} w-full h-screen bg-ValoDarkViolet z-50 py-4`}> 
+    <div className={`${!Weapon.isTrigger?"hidden":"relative"} w-full h-screen bg-ValoDarkViolet z-50 py-6`}> 
 
-      
-        <div onClick={()=>handleWeapon()} className=' w-fit h-fit absolute top-0 right-6 z-40'>
+      <div onClick={()=>handleWeapon()} className=' w-fit h-fit absolute top-0 right-6 z-40'>
           <Icon icon="mdi:close-thick" width="30" height="50" color='#fd4556' />
-        </div>
+      </div>
 
     <div className='flex flex-col gap-2'>
-      <div className='relative p-4 bg-slate-500'>
 
-        <div className='w-full h-full bg-white absolute opacity-5 z-10' ref={BGRef}>
+      <div className='relative  w-full h-full p-4'>
 
-        </div>
+    
+        <label className='text-ValoGreen uppercase text-[4em] font-Tungsten tracking-widest relative z-20'>{currSkin && currSkin !== null && currSkin.displayName}</label>
 
+       
+        <div className=" bg-opacity-5 relative flex justify-center h-[20em] overflow-hidden items-center">
+          <img className="h-[14em] 2xl:w-[40%] xl:w-[50%] lg:w-[80%] md:w-[90%] sm:w-[100%] object-contain relative z-10 drop-shadow-xl" src={currSkin.imagePath || undefined} alt="image description"/>
 
-        {currSkin && currSkin !== null && currSkin.displayName}
-        <div className="bg-white bg-opacity-5 relative flex justify-center h-[20em] p-[5em] overflow-hidden">
-          <img className="h-[14em] min-w-[25em] max-w-[30em] object-contain relative z-10" src={currSkin.imagePath || undefined} alt="image description"/>
-
-          {currSkin && currSkin.contentTier ? <img className="h-[20em] min-w-[4em] max-w-[20em] object-contain absolute -bottom-1/4 right-1/3 opacity-50" src={currSkin.contentTier?.displayIcon || undefined} /> : ""}
+          {currSkin && currSkin.contentTier ? <img className="h-[20em] min-w-[4em] max-w-[20em] object-contain absolute -bottom-1/4 left-[1em] opacity-50" src={currSkin.contentTier?.displayIcon || undefined} /> : ""}
             
-            <Chromas chromas={currChroma} handleDisplay={handleDisplay}/>
+          <Chromas chromas={currChroma} handleDisplay={handleDisplay}/>
+
         </div>
        
       </div>
@@ -180,54 +179,39 @@ console.log(WeaponData, "Initial Weapon DATA")
 
 
 
-      <div className='bg-red-300'>
+        <div className='p-2'>
 
-        <div>
           <div>
+            <div>
+            </div>
+
+            <div>  
+            </div>
           </div>
 
-          <div>  
-          </div>
-        </div>
-
-      
-          <div className='flex flex-row gap-2 flex-nowrap overflow-x-scroll p-2 relative left-10'>
+        
+          <div className='flex flex-row gap-2 flex-nowrap overflow-x-scroll relative p-2'>
 
             {WeaponData && WeaponData.skins !== null && WeaponData.skins.map((skin,id )=> (
-              <div key={id} className='bg-red-300 relative min-w-[10em]' onClick={()=>{handleWeaponSkin(skin.displayName, skin.chromas[0].fullRender, skin.contentTierUuid, skin.chromas)}}>
-                <div className='p-4'>
-                  <img  src={skin.chromas[0].fullRender} alt={skin.displayName} />
+              <div key={id} className='relative h-fit 2xl:min-w-[24em] flex flex-col sm:min-w-[10em] md:min-w-[12em] lg:min-w-[14em] xl:min-w-[16em] hover:bg-ValoGreen' onClick={()=>{handleWeaponSkin(skin.displayName, skin.chromas[0].fullRender, skin.contentTierUuid, skin.chromas)}}>
+                <div className='flex flex-col justify-around border-2 p-1 relative'>
+
+                  <div className=' w-full h-full relative z-20 hover:bg-gray-700 bg-gray-600 bg-opacity-5' style={{clipPath: 'polygon(15% 0, 100% 0, 100% 100%, 0 100%, 0 30%)'}}>
+                    <div className='w-full h-full py-10 hover:bg-gradient-to-t from-ValoGreen from-0% via-transparent via-90%  to-transparent to-90% transition-all duration-300'>
+                      <img  src={skin.chromas[0].fullRender} alt={skin.displayName} className='object-contain w-full h-full'/>
+                    </div>
+                  </div>
+
                 </div>
-                <p>{skin.displayName}</p>
               </div>
-            ))}
+              ))}
 
           </div>
-       
 
-
-      </div>
+        </div>
 
     </div>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    
-      
-
-    
-  </div> 
+    </div> 
   )
 }

@@ -12,7 +12,7 @@ export const Chromas: React.FC<ChromasComponentType> = ({chromas, handleDisplay}
   return (
     <div className='flex flex-row  absolute bottom-1 left-1 gap-2 z-30'>
         {chromas && chromas.length >= 2 && chromas.map(chroma => (
-            <div onClick={()=>(handleDisplay(chroma.displayName, chroma.fullRender))} className='hover:grow-1 grow-0'>
+            <div onClick={()=>(handleDisplay(chroma.displayName, chroma.fullRender))} className='hover:scale-150 transition-all'>
                 
                 <div className="w-[2.5em]">
                     <img className="h-auto max-w-full" src={chroma.swatch || undefined} alt="image description"/>
