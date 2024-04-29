@@ -3,6 +3,8 @@ import { AgentType } from '../typings/agentTypes';
 import AgentButton from './AgentButton';
 import { AgentAbilities } from './AgentAbilities';
 
+
+
 interface AgentDetailsProps {
     currAgent: AgentType | null;
     agents: AgentType[];
@@ -39,14 +41,6 @@ interface AgentDetailsProps {
      })
   }
 
-
-
-
-
-  const animateMe = {
-    initial: {opacity: 0, x:100},
-    animate:{opacity:1, x:0}
-  }
     
     return (
         <>
