@@ -4,7 +4,9 @@ import fetchAgents from '../APIs/fetchAgents';
 import { AgentType } from '../typings/agentTypes';
 import AgentDetails from './AgentDetails';
 
+import { Suspense } from 'react';
 
+import { ParentLoading } from '../utils/ParentLoading';
 const AgentHero = () => {
     const BackgroundRef = useRef<HTMLDivElement>(null);
     const [agents, setAgents] = useState<AgentType[]>([]);
@@ -48,11 +50,14 @@ const AgentHero = () => {
     // console.log(agents)
    
     return (
-        <div className='w-full h-fit overflow-hidden' ref={BackgroundRef} >
-            <AgentDetails currAgent={currAgent} handleCurrentAgent={handleCurrentAgent} agents={agents}/>
-        </div>
 
-            
+        <Suspense fallback={<ParentLoading />}>
+           <div className='w-full h-fit overflow-hidden' ref={BackgroundRef} >
+            <AgentDetails currAgent={currAgent} handleCurrentAgent={handleCurrentAgent} agents={agents}/>
+            </div>  
+        </Suspense>
+
+        
     );
 };
 

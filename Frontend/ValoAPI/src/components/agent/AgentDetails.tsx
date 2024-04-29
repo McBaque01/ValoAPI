@@ -3,6 +3,7 @@ import { AgentType } from '../typings/agentTypes';
 import AgentButton from './AgentButton';
 import { AgentAbilities } from './AgentAbilities';
 
+
 interface AgentDetailsProps {
     currAgent: AgentType | null;
     agents: AgentType[];
@@ -22,6 +23,8 @@ interface AgentDetailsProps {
       description: currAgent ? currAgent.role.description: "",
     });
 
+  
+
   useEffect(()=>{
     SetAbilities({
       title:  currAgent ? currAgent.role.displayName : "",
@@ -38,6 +41,8 @@ interface AgentDetailsProps {
   }
 
 
+
+
     
     return (
         <>
@@ -47,10 +52,12 @@ interface AgentDetailsProps {
                   <div className='w-full h-full flex flex-col p-2'>
 
                         <div className='w-full h-fit relative flex justify-end 2xl:items-center xl:items-center '>
+                       
                           <div className='w-full md:w-[65%] lg:w-[60%] 2xl:w-[50%] xl:w-[50%] h-fit flex flex-col 2xl:items-center xl:items-center items-end p-4gap-1 pt-[2em]'>
                             <p className='font-Tungsten text-8xl uppercase tracking-[0.08em] text-ValoRed 2xl:text-[12em] relative z-40 w-fit transition-all ease-in-out duration-300 '>{currAgent !== null ? currAgent.displayName : null}</p>
                             <p className='font-Tungsten text-6xl tracking-widest uppercase text-ValoYellow 2xl:text-[8em]  relative z-30 transition-all ease-in-out duration-300 '>{currAgent !== null ? currAgent.role.displayName : null}</p>
                           </div>
+                         
                         </div>
 
                         <div className='w-full h-full flex relative z-40 flex-row justify-end items-end '>
@@ -85,20 +92,10 @@ interface AgentDetailsProps {
                      }}
                   ></div>
                   
-                  <div className='w-[54em] h-full absolute top-[28em] left-1/3 transform -translate-x-1/2 -translate-y-1/2 z-30 overflow-hidden'
-      
-                    style={{
-                      backgroundImage: `url(${currAgent !== null ? currAgent.fullPortrait : null})`,
-                      backgroundSize:'cover',
-                      backgroundRepeat: `no-repeat`,
-                      backgroundPosition: 'center',
-                     
-                    }}
                   
-                  ></div>
-                 
-
-              </div>
+                      <img src={currAgent !== null ? currAgent.fullPortrait : undefined} className='absolute z-30 top-[28em] left-1/3 transform -translate-x-1/2 -translate-y-1/2 object-contain max-h-[70em] max-w-[70em] transition-all duration-300'></img>
+                    
+              </div>  
             </div>
         </>
     )

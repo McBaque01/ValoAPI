@@ -46,7 +46,12 @@ const handleSkin = (skins: skinsType[] | null) => {
         skins.unshift(skins[i]);
         skins.splice(i + 1,1)
         break;
-      }else{
+      }else if(skins && skins[i].displayName.startsWith("Melee")){
+        skins.unshift(skins[i]);
+        skins.splice(i + 1,1)
+        break;
+      }
+      else{
         continue;
       }
     }
@@ -147,8 +152,8 @@ export const WeaponUI : React.FC<WeaponUITypes> = ({Weapon, handleWeapon}) => {
   }
 
   
-  // console.log(Weapon, "WEAPON!");
-  // console.log(WeaponData !== null && WeaponData.skins, "WEAPONS DATA!");
+  console.log(Weapon, "WEAPON!");
+  console.log(WeaponData !== null && WeaponData.skins, "WEAPONS DATA!");
   console.log(currSkin, "Current SKIN!")
   // console.log(currChroma, "CHROOOMAS")
 
@@ -168,7 +173,7 @@ export const WeaponUI : React.FC<WeaponUITypes> = ({Weapon, handleWeapon}) => {
         <label className='text-ValoGreen uppercase custom-text font-Tungsten tracking-widest relative z-20'>{currSkin && currSkin !== null && currSkin.displayName}</label>
 
        
-        <div className=" bg-opacity-5 relative flex justify-center h-[20em] overflow-hidden items-center">
+        <div className=" relative flex justify-center h-[20em] overflow-hidden items-center">
           <img className =
           {`h-[14em] custom-width object-contain absolute z-10 brightness-0 bottom-12 opacity-50 transition-all duration-300 ${isHover ? 'bottom-[30px]' : ''}`} 
           src={currSkin.imagePath || undefined} alt="image description"

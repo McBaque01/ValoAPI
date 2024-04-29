@@ -3,6 +3,9 @@ import fetchWeapons from "../APIs/fetchWeapons"
 import { WeaponType } from "../typings/weaponTypes"
 import { WeaponsUI } from "./WeaponsUI"
 import { WeaponUI } from "./WeaponUI"
+import { Suspense } from "react"
+import { ParentLoading } from "../utils/ParentLoading"
+
 
 export const WeaponHero = () => {
 
@@ -47,12 +50,12 @@ export const WeaponHero = () => {
   return (
 
   <>
-
     {Weapon.isTrigger ? <WeaponUI Weapon={Weapon} handleWeapon={handleWeapon}/>
     :
-    <WeaponsUI Weapons={Weapons} handleWeapon={handleWeapon}/>
+    <Suspense fallback={<ParentLoading/>}>
+       <WeaponsUI Weapons={Weapons} handleWeapon={handleWeapon}/>
+    </Suspense>
     }
-
   </>
 
   )
