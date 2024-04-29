@@ -31,3 +31,12 @@
         height: 0.1em;
     }
   }
+
+  @layer utilities {
+    .custom-width {
+      @apply 2xl:w-[40%] xl:w-[50%] lg:w-[80%] md:w-[90%] sm:w-[100%];
+    }
+    .custom-text {
+        @apply 2xl:text-[2.4em] xl:text-[2.4em] lg:text-[2em] md:text-[2em] sm:text-[2em];
+    }
+  }
