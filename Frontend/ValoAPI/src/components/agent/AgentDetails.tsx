@@ -2,8 +2,8 @@ import React, { useEffect, useState } from 'react'
 import { AgentType } from '../typings/agentTypes';
 import AgentButton from './AgentButton';
 import { AgentAbilities } from './AgentAbilities';
-
-
+import { Suspense } from 'react';
+import omen from '../../assets/images/omen-loading.gif'
 
 interface AgentDetailsProps {
     currAgent: AgentType | null;
@@ -81,7 +81,7 @@ interface AgentDetailsProps {
                         </div>
                     
                   </div>
-
+                <Suspense fallback={omen}>
                   <div className='w-[40em] xl:w-[50em] 2xl:w-[50em] h-full absolute top-[22em] left-1/3 transform -translate-x-1/2 -translate-y-1/2 overflow-hidden z-30'
                     style={{
                       backgroundImage: `url(${currAgent !== null ? currAgent.background : null})`,
@@ -93,7 +93,7 @@ interface AgentDetailsProps {
                   ></div>
                  
                   <img src={currAgent !== null ? currAgent.fullPortrait : undefined} className='absolute z-30 top-[28em] left-1/3 transform -translate-x-1/2 -translate-y-1/2 object-contain max-h-[70em] max-w-[70em] transition-all duration-300'></img>
-                 
+                </Suspense>
               </div>  
             </div>
         </>
