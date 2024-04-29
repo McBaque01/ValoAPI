@@ -3,7 +3,6 @@ import { AgentType } from '../typings/agentTypes';
 import AgentButton from './AgentButton';
 import { AgentAbilities } from './AgentAbilities';
 
-
 interface AgentDetailsProps {
     currAgent: AgentType | null;
     agents: AgentType[];
@@ -43,6 +42,11 @@ interface AgentDetailsProps {
 
 
 
+
+  const animateMe = {
+    initial: {opacity: 0, x:100},
+    animate:{opacity:1, x:0}
+  }
     
     return (
         <>
@@ -69,6 +73,7 @@ interface AgentDetailsProps {
                        
 
                         <div className=' w-full h-fit flex flex-col items-end justify-end z-40 p-2'>
+                       
                           <div className='w-full xl:w-[50%] 2xl:w-[50%] h-fit flex gap-1 flex-col p-1'>
                                 <h1 className='w-fit font-Poppins font-black tracking-[0.08em] text-[1.4em] xl:text-[1em] 2xl:text-[2em] text-ValoRed uppercase bg-ValoDark px-2 bg-opacity-75'>
                                   {Abilities.title}
@@ -77,6 +82,7 @@ interface AgentDetailsProps {
                                   {Abilities.description}
                                 </p>
                           </div>
+                        
                           <AgentButton handleCurrentAgent={handleCurrentAgent} agents={agents}/>
                         </div>
                     
@@ -91,10 +97,9 @@ interface AgentDetailsProps {
                       opacity:'0.2'
                      }}
                   ></div>
-                  
-                  
-                      <img src={currAgent !== null ? currAgent.fullPortrait : undefined} className='absolute z-30 top-[28em] left-1/3 transform -translate-x-1/2 -translate-y-1/2 object-contain max-h-[70em] max-w-[70em] transition-all duration-300'></img>
-                    
+                 
+                  <img src={currAgent !== null ? currAgent.fullPortrait : undefined} className='absolute z-30 top-[28em] left-1/3 transform -translate-x-1/2 -translate-y-1/2 object-contain max-h-[70em] max-w-[70em] transition-all duration-300'></img>
+                 
               </div>  
             </div>
         </>

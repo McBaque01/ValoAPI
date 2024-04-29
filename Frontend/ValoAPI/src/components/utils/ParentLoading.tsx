@@ -1,4 +1,4 @@
-import React from 'react'
+
 import omen from '../../assets/images/omen-loading.gif'
 
 
