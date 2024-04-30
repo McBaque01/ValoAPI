@@ -10,7 +10,7 @@ export const Chromas: React.FC<ChromasComponentType> = ({chromas, handleDisplay}
 
     // console.log(chromas,"CHROMAS")
   return (
-    <div className='flex flex-row  absolute bottom-6 left-6 gap-2 z-30'>
+    <div className='flex flex-row  absolute bottom-1 left-1 gap-2 z-30'>
         {chromas && chromas.length >= 2 && chromas.map(chroma => (
             <div onClick={()=>(handleDisplay( chroma.fullRender))} className='hover:scale-125 transition-all'>
                 
