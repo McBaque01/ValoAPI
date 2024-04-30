@@ -7,7 +7,7 @@ interface DetailsPropsTypes{
 
 export const WeaponDetails: React.FC<DetailsPropsTypes> = ({currentWeapon}) => {
 
-    console.log(currentWeapon)
+    // console.log(currentWeapon)
   return ( 
     <div className="w-full h-full relative flex flex-col ">
 

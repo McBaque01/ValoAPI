@@ -41,7 +41,7 @@ interface AgentDetailsProps {
      })
   }
 
-  console.log(agents)
+  // console.log(agents)
 
     
     return (

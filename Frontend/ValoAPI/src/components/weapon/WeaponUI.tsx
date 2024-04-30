@@ -154,9 +154,9 @@ export const WeaponUI : React.FC<WeaponUITypes> = ({Weapon, handleWeapon}) => {
   }
 
   
-  console.log(Weapon, "WEAPON!");
-  console.log(WeaponData !== null && WeaponData.skins, "WEAPONS DATA!");
-  console.log(currSkin, "Current SKIN!")
+  // console.log(Weapon, "WEAPON!");
+  // console.log(WeaponData !== null && WeaponData.skins, "WEAPONS DATA!");
+  // console.log(currSkin, "Current SKIN!")
   // console.log(currChroma, "CHROOOMAS")
 
   

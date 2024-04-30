@@ -16,12 +16,13 @@ const AgentHero = () => {
 
     const [agents, setAgents] = useState<AgentType[]>([]);
     const [currAgent, setCurrAgent] = useState<AgentType | null>(null);
-    const [agentColor, setagentColor] = useState<Resu | undefined>();
+   
 
 
 
     const handleCurrentAgent = (agent: AgentType[] | null) => {
         setCurrAgent(agent !== null ? agent[0] : null);
+      
     }
 
     useEffect(() => {
@@ -54,23 +55,30 @@ const AgentHero = () => {
     useEffect(() => {
         if (currAgent && BackgroundRef.current) {
             const gradient = currAgent.backgroundGradientColors;
-
             const hex: string | undefined = currAgent && currAgent !== undefined && currAgent?.backgroundGradientColors ? currAgent.backgroundGradientColors[0].slice(0, 6) : undefined;
-    
             resu = CssFilterConverter.hexToFilter(typeof hex === 'string' ? `#${hex}` : "");
-            //  resu = CssFilterConverter.hexToFilter("#3be0c3");
-             setagentColor(resu)
-            if (gradient && gradient.length >= 4 && AgentRef && AgentRef.current !== null) {
-                BackgroundRef.current.style.background =
-                    `linear-gradient(to top left, #${gradient[2]}, rgba(56, 56, 56, 0.2), #${gradient[0]}),
-                    linear-gradient(to top right, #${gradient[3]}, rgba(56, 56, 56, 0.2), #${gradient[1]})`;
-                    AgentRef.current.style.filter = `${resu.color}`
-            } else {
-                BackgroundRef.current.style.background = '';
+          
+            {AgentRef && AgentRef.current !== null ?   AgentRef.current.style.filter = `${resu?.color}`: ''}
+
+            {gradient && gradient.length >= 4 && AgentRef && AgentRef.current !== null ? 
+                BackgroundRef.current.style.background = 
+                `linear-gradient(to top left, #${gradient[2]}, rgba(56, 56, 56, 0.2), #${gradient[0]}),
+                linear-gradient(to top right, #${gradient[3]}, rgba(56, 56, 56, 0.2), #${gradient[1]})` 
+                : 
+                ""
             }
+
+            // if (gradient && gradient.length >= 4 && AgentRef && AgentRef.current !== null) {
+            //     BackgroundRef.current.style.background =
+            //         `linear-gradient(to top left, #${gradient[2]}, rgba(56, 56, 56, 0.2), #${gradient[0]}),
+            //         linear-gradient(to top right, #${gradient[3]}, rgba(56, 56, 56, 0.2), #${gradient[1]})`;
+                    
+            // } else {
+            //     BackgroundRef.current.style.background = '';
+            // }
         }
     }, [currAgent]);
-    console.log(agentColor)
+    // console.log(agentColor)
     // console.log(agents)
    
     // let hex: string | undefined = currAgent && currAgent !== undefined && currAgent?.backgroundGradientColors ? currAgent.backgroundGradientColors[0].slice(0, 6) : undefined;
