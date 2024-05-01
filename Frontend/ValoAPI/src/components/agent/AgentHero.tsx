@@ -17,9 +17,6 @@ const AgentHero = () => {
     const [agents, setAgents] = useState<AgentType[]>([]);
     const [currAgent, setCurrAgent] = useState<AgentType | null>(null);
    
-
-
-
     const handleCurrentAgent = (agent: AgentType[] | null) => {
         setCurrAgent(agent !== null ? agent[0] : null);
       
