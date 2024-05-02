@@ -103,7 +103,7 @@ export const WeaponDetails: React.FC<DetailsPropsTypes> = ({currentWeapon}) => {
 
 
 
-                <div className=" h-full w-fit relative rounded-lg xl:w-full 2xl:w-full 2xl:h-fit xl:h-fit p-2 bg-gray-800 lg:min-w-[20em] md:min-w-[20em]">
+                <div className="h-full w-fit relative rounded-lg xl:w-full 2xl:w-full 2xl:h-fit xl:h-fit p-2 bg-gray-800 lg:min-w-[20em] md:min-w-[20em]">
                     <div className="w-fit h-full relative flex 2xl:flex-col xl:flex-col flex-col xl:w-full 2xl:w-full lg:min-w-[20em] md:min-w-[20em]">
 
                         <div className="w-full h-fit text-center relative">
@@ -113,15 +113,15 @@ export const WeaponDetails: React.FC<DetailsPropsTypes> = ({currentWeapon}) => {
                         
                         {currentWeapon && currentWeapon.weaponStats 
                             ? 
-                                <div className="w-fit h-full p-1 xl:w-full 2xl:w-full sm:min-w-[20em] lg:min-w-[20em] md:min-w-[20em]">
+                                <div className="w-fit h-full p-1 xl:w-full 2xl:w-full ">
                                     <div className="flex flex-row justify-between w-full relative h-full ">
-                                        <div className="relative flex 2xl:flex-col xl:flex-col flex-nowrap gap-3 flex-row w-fit h-full xl:w-full 2xl:w-full min-w-[20em]">
+                                        <div className="relative flex 2xl:flex-col xl:flex-col flex-nowrap gap-3 flex-row w-fit h-full xl:w-full 2xl:w-full sm:min-w-[20em] lg:min-w-[20em] md:min-w-[20em] justify-center">
                                             {currentWeapon && 
                                             currentWeapon.weaponStats && 
                                             currentWeapon.weaponStats.damageRanges.length > 0 && 
                                             currentWeapon.weaponStats.damageRanges.map((range, id) => (
 
-                                                <div key={id} className="text-center min-w-[14em] h-fit border-b-2">
+                                                <div key={id} className="text-center sm:min-w-[14em] lg:min-w-[14em] md:min-w-[14em] xl:w-full 2xl:w-full h-fit border-b-2">
                                                     <div className="w-full xl:w-full 2xl:w-full text-ValoYellow font-DinHeavy tracking-widest">{range.rangeStartMeters} - {range.rangeEndMeters}</div>
                                                     <div className="flex flex-row justify-between">
                                                         <h1 className="text-ValoGreen font-DinRegular tracking-widest uppercase">Head</h1>
