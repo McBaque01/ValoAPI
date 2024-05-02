@@ -210,7 +210,7 @@ export const WeaponUI : React.FC<WeaponUITypes> = ({Weapon, handleWeapon}) => {
                     {WeaponData && WeaponData.skins !== null && WeaponData.skins.map((skin,id )=> (
                       <div key={id} className='relative min-h-[1em] 2xl:min-w-[24em] flex flex-col sm:min-w-[12em] md:min-w-[13em] lg:min-w-[14em] 
                       xl:min-w-[18em] ' onClick={()=>{handleWeaponSkin(skin.displayName, skin.chromas[0].fullRender, skin.contentTierUuid, skin.chromas)}}>
-                        <div className='flex flex-col justify-around border-[0.2em] p-1 border-ValoGreen relative hover:bg-ValoGreen'>
+                        <div className='flex flex-col justify-around border-[0.2em] p-1 border-ValoGreen relative hover:bg-ValoGreen bg-gray-800'>
 
                           <div className=' w-full h-full relative z-20 hover:bg-gray-700 bg-gray-600 bg-opacity-5' style={{clipPath: 'polygon(15% 0, 100% 0, 100% 100%, 0 100%, 0 30%)'}}>
                             <div className='w-full h-full py-4 hover:bg-gradient-to-t from-ValoGreen from-0% via-transparent via-90%  to-transparent to-90% transition-all duration-300'>
