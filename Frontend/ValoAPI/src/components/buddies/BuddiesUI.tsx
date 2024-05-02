@@ -1,8 +1,33 @@
 
+import { useState,useEffect } from "react";
+import { BuddyType } from "../typings/buddiesTypes"
 
-export const BuddiesUI = () => {
+import { LazyLoadImage } from 'react-lazy-load-image-component';
+
+interface BuddyPropsTypes{
+  Buddies: BuddyType[] | null;
+}
+
+
+
+export const BuddiesUI:  React.FC<BuddyPropsTypes> = ({Buddies}) => {
+
+const [CurrBuddy, setCurrBuddy] = useState<BuddyType | null>(null);
+
+
+const setCurrentBuddy = (currBuddy: BuddyType | null):void =>{
+  setCurrBuddy(currBuddy);
+}
+
+useEffect(()=>{
+setCurrentBuddy(Buddies && Buddies[0])
+},[Buddies])
+
+
+
+console.log(Buddies);
   return (
-    <div className="w-full h-screen after:content-[''] 
+    <div className="w-full h-fit after:content-[''] 
     after:absolute 
     after:w-full 
     after:h-full
@@ -15,9 +40,49 @@ export const BuddiesUI = () => {
     after:brightness-[0.15]
     "
     >
-        <div className='flex flex-col justify-center w-full h-full p-4 py-10 relative items-center text-ValoYellow z-10 bg-black'>
-            Z-INDEX IS THE KEY!
+     
+        <div className="flex flex-row bg-gray-900 p-2 relative z-10 w-full h-screen gap-2 sm:flex-col md:flex-col lg:flex-col sm:pt-10 lg:pt-10 md:pt-10 xl:flex-row-reverse 2xl:flex-row-reverse">
+          
+        <div className="w-full h-full relative p-2 flex flex-col gap-2 items-end">
+                  <div className="w-fit h-fit relative right-0 sm:w-full">
+                      <input type="text" placeholder="Search" className="w-[20em] sm:w-full p-4 border-0 bg-gray-800 focus:border-none focus:outline-none border-none font-DinRegular text-slate-300"/>
+                    </div>
+
+                    <div className="bg-gray-800 w-full h-full relative z-10 flex justify-center items-center">
+                        <h1 className="absolute top-2 font-Tungsten font-black uppercase text-[4em] lg:text-[2em] md:text-[2em] sm:text-[2em] text-ValoYellow">{CurrBuddy?.displayName}</h1>
+                        <LazyLoadImage src={CurrBuddy?.displayIcon} alt={CurrBuddy?.displayName}
+                          className=' object-contain min-w-[14em] min-h-[14em] hover:-translate-y-2 transition-all relative'/>
+                    </div>
         </div>
+            
+          
+          
+          <div className="w-fit h-full bg-gray-800 overflow-hidden relative gap-2 flex flex-col p-2">
+
+
+            <div className="relative w-fit h-full overflow-x-scroll">
+              <div className='grid grid-cols-8 gap-2 bg-black lg:grid-cols-10 md:grid-cols-8 sm:grid-cols-5 p-2 place-content-center'>
+                {Buddies && Buddies.length > 0 && Buddies.map((Buddy, uuid) => (
+                  <div key={uuid} className="text-ValoYellow relative flex justify-center p-3 bg-gray-700" onClick={()=>setCurrentBuddy(Buddy)}>
+
+
+                  <LazyLoadImage src={Buddy.displayIcon} alt={Buddy.displayName}
+                  className=' object-contain max-w-[10em] max-h-[5em] hover:-translate-y-2 transition-all relative'/>
+      
+                  </div>
+                ))}
+
+              </div>
+
+            </div>
+
+          </div>
+
+         
+         
+
+        
+      </div>
     </div>
   )
 }
