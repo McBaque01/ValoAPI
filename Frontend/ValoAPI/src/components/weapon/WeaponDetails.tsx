@@ -113,7 +113,7 @@ export const WeaponDetails: React.FC<DetailsPropsTypes> = ({currentWeapon}) => {
                         
                         {currentWeapon && currentWeapon.weaponStats 
                             ? 
-                                <div className="w-fit h-full p-1 xl:w-full 2xl:w-full bg-slate-400 sm:min-w-[20em] lg:min-w-[20em] md:min-w-[20em]">
+                                <div className="w-fit h-full p-1 xl:w-full 2xl:w-full sm:min-w-[20em] lg:min-w-[20em] md:min-w-[20em]">
                                     <div className="flex flex-row justify-between w-full relative h-full ">
                                         <div className="relative flex 2xl:flex-col xl:flex-col flex-nowrap gap-3 flex-row w-fit h-full xl:w-full 2xl:w-full min-w-[20em]">
                                             {currentWeapon && 
