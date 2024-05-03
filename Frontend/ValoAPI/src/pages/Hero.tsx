@@ -7,6 +7,7 @@ import { TitleHero } from '../components/title/TitleHero';
 import { CardHero } from '../components/card/CardHero';
 import {SprayHero } from '../components/spray/SprayHero';
 
+
 export const Hero = () => {
 
   const [activePage, setActivePage] = useState<string>('agent'); 

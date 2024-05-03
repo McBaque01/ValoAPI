@@ -19,7 +19,7 @@ export const BuddiesHero = () => {
     fetchBuddiesData();
   }, []);
 
-console.log(Buddies)
+// console.log(Buddies)
 
   return (
     <>
