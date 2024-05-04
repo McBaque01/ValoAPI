@@ -70,15 +70,18 @@ setCurrentBuddy(Buddies && Buddies[0])
                       <>
                         {Array.isArray(Result) && Result.length !== 0 
                         ?
-                          <div className='grid grid-cols-8 gap-2 bg-black lg:grid-cols-10 md:grid-cols-8 sm:grid-cols-5 p-2 place-content-center'>
+                          <div className=' flex flex-row flex-wrap w-full h-fit justify-center gap-2 min-w-[24em]'>
                             {Result && Result.length > 0 && Result.map((Buddy, uuid) => (
-                              <div key={uuid} className="text-ValoYellow relative flex justify-center p-3 bg-gray-700" onClick={()=>setCurrentBuddy(Buddy)}>
+                              <div key={uuid} className="text-ValoYellow relative flex justify-center p-3 w-[5em] h-[5em] bg-ValoGreen bg-opacity-10 hover:bg-opacity-100" onClick={()=>setCurrentBuddy(Buddy)}>
                               <LazyLoadImage src={Buddy.displayIcon} alt={Buddy.displayName}
-                              className=' object-contain max-w-[10em] max-h-[5em] hover:-translate-y-2 transition-all relative'/>
+                              className='object-contain w-full h-full hover:-translate-y-2 transition-all relative'/>
                   
                               </div>
                             ))}
                           </div>
+
+
+                        
                         :
                           <>
                             <p className="text-[2em] p-4 uppercase text-ValoYellow font-Valorant">No Match found!</p>
@@ -96,7 +99,7 @@ setCurrentBuddy(Buddies && Buddies[0])
          
                      </div>
                      ))}
-                 </div>
+                    </div>
               
                   }
               </div>
