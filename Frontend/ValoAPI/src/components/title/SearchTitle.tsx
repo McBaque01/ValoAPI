@@ -14,6 +14,7 @@ export const SearchTitle: React.FC<SearchPropsType>= ({Titles, Search, setResult
         try {
             if (Titles) {
               const filteredResults = Titles.filter((Title) =>  
+               
                 Title && Title.displayName && Title.displayName.toLowerCase().includes(Search.toLowerCase())
               );
               setResult(filteredResults);

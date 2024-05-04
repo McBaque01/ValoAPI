@@ -35,7 +35,7 @@ import { SearchSpray } from './SearchSpray';
                 </div>
 
                 <div className="bg-gray-800 w-full h-full relative z-10 flex justify-center items-center">
-                  <h1 className="absolute top-[1em] font-Tungsten font-normal uppercase text-[3em] lg:text-[2em] md:text-[2em] sm:text-[2em] text-ValoYellow tracking-widest hover:text-ValoGreen">
+                  <h1 className="absolute top-[1em] font-Tungsten font-normal uppercase text-[3em] lg:text-[2em] md:text-[2em] sm:text-[2em] text-ValoYellow tracking-widest hover:text-ValoGreen z-20">
                     {currSpray?.displayName}
                     </h1>
                     <LazyLoadImage src=
