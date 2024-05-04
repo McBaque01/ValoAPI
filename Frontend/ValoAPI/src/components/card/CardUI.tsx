@@ -64,11 +64,12 @@ export const CardUI: React.FC<CardsProps> = ({Cards}) => {
                            '/>
                     </div>
 
-                    <div className="absolute bottom-2 right-2 z-10 p-2 flex gap-8 bg-gray-900">
+                    <div className="absolute bottom-2 right-2 z-10 p-2 flex gap-8">
                         <button className="  text-[1.4em] font-DinHeavy text-ValoGreen hover:text-ValoRed" onClick={() => handleSize(currCard && currCard.CurrCard ? currCard?.CurrCard?.smallArt : "") }>S</button>
                         <button className="  text-[1.2em] font-DinHeavy text-ValoGreen hover:text-ValoRed" onClick={() => handleSize(currCard && currCard.CurrCard ? currCard?.CurrCard?.wideArt : "")}>W</button>
                         <button className="  text-[1.2em] font-DinHeavy text-ValoGreen hover:text-ValoRed" onClick={() => handleSize(currCard && currCard.CurrCard ? currCard?.CurrCard?.largeArt : "")}>L</button>
-                    </div> 
+                    </div>
+                    
             </div>
 
             
