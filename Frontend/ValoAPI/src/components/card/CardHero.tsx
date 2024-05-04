@@ -2,7 +2,7 @@ import { useState, useEffect} from "react";
 import { CardUI } from "./CardUI"
 import { CardType } from "../typings/cardTypes";
 import fetchCards from "../APIs/fetchCards";
-import fetchBuddies from "../APIs/fetchBuddies";
+
 export const CardHero = () => {
 
   const [Cards, setCards] = useState<CardType[] | null>(null)
@@ -19,7 +19,7 @@ export const CardHero = () => {
     fetchCardsData();
   }, []);
 
-    console.log(Cards)
+    // console.log(Cards)
 
   return (
     <div className="w-full h-screen">

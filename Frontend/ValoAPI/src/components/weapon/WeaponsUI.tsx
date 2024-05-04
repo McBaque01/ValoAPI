@@ -1,5 +1,6 @@
 import React, { Suspense } from 'react'
 import { WeaponType } from '../typings/weaponTypes'
+import { ParentLoading } from '../utils/ParentLoading';
 interface WeaponUITypes{
     Weapons: WeaponType[],
     handleWeapon: (weapon: WeaponType | undefined) => void;
@@ -23,7 +24,7 @@ export const WeaponsUI: React.FC<WeaponUITypes> = ({Weapons, handleWeapon}) => {
           "
         >
    
-
+    <Suspense fallback={<ParentLoading/>}>
       <div className='flex flex-col justify-center w-full h-fit p-4 py-10 relative items-center'>
 
           <div className="relative z-10 flex flex-wrap flex-row h-fit min-w-[24em] gap-2  justify-center 2xl:w-[90%] xl:w-[90%] lg:w-[90%] md:w-[90%] sm:w-[80%]">
@@ -273,8 +274,13 @@ export const WeaponsUI: React.FC<WeaponUITypes> = ({Weapons, handleWeapon}) => {
 
 
           </div>
+          </Suspense>
+
+
 
         </div>
+
+        
        
   )
 }

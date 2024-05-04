@@ -45,7 +45,7 @@ export const CardUI: React.FC<CardsProps> = ({Cards}) => {
   return (
     <div className="flex flex-row bg-gray-900 p-4 relative z-10 w-full h-screen gap-2 sm:flex-col md:flex-col lg:flex-col sm:pt-14 lg:pt-14 md:pt-14 xl:flex-row-reverse 2xl:flex-row-reverse">
           
-            <div className="w-full h-full sm:h-[60%] md:h-[60%] lg:h-[60%] relative flex flex-col gap-2 items-end">
+            <div className="w-full h-full sm:h-[60%] md:h-[60%] lg:h-[60%] relative flex flex-col gap-2 items-end overflow-hidden">
                     <div className="w-fit h-fit relative right-0 sm:w-full">
                         <input type="text" placeholder="Search" value={Search} onChange={(e)=>setSearch(e.target.value)} className="w-[20em] sm:w-full p-4 border-0 bg-gray-800 focus:border-none focus:outline-none border-none font-DinRegular text-slate-300"/>
                         <SearchCard Cards={Cards} Search={deferredSearch} setResult={setResult}/>
@@ -64,10 +64,10 @@ export const CardUI: React.FC<CardsProps> = ({Cards}) => {
                            '/>
                     </div>
 
-                    <div className="absolute bottom-2 right-2 z-10 p-2 flex gap-2 bg-gray-900">
-                        <button className="px-4 py-1  text-[1.4em] font-DinHeavy text-ValoGreen hover:text-ValoRed" onClick={() => handleSize(currCard && currCard.CurrCard ? currCard?.CurrCard?.smallArt : "") }>S</button>
-                        <button className="px-4 py-1  text-[1.2em] font-DinHeavy text-ValoGreen hover:text-ValoRed" onClick={() => handleSize(currCard && currCard.CurrCard ? currCard?.CurrCard?.wideArt : "")}>W</button>
-                        <button className="px-4 py-1  text-[1.2em] font-DinHeavy text-ValoGreen hover:text-ValoRed" onClick={() => handleSize(currCard && currCard.CurrCard ? currCard?.CurrCard?.largeArt : "")}>L</button>
+                    <div className="absolute bottom-2 right-2 z-10 p-2 flex gap-8 bg-gray-900">
+                        <button className="  text-[1.4em] font-DinHeavy text-ValoGreen hover:text-ValoRed" onClick={() => handleSize(currCard && currCard.CurrCard ? currCard?.CurrCard?.smallArt : "") }>S</button>
+                        <button className="  text-[1.2em] font-DinHeavy text-ValoGreen hover:text-ValoRed" onClick={() => handleSize(currCard && currCard.CurrCard ? currCard?.CurrCard?.wideArt : "")}>W</button>
+                        <button className="  text-[1.2em] font-DinHeavy text-ValoGreen hover:text-ValoRed" onClick={() => handleSize(currCard && currCard.CurrCard ? currCard?.CurrCard?.largeArt : "")}>L</button>
                     </div> 
             </div>
 
