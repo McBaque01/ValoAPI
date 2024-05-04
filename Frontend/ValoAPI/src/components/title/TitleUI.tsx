@@ -21,9 +21,9 @@ export const TitleUI: React.FC<TitleProps> = ({Titles}) => {
     },[Titles])
 
 
-    console.log(currTitle)
-    console.log(Titles)
-    console.log(Result,"RESULLLT")
+    // console.log(currTitle)
+    // console.log(Titles)
+    // console.log(Result,"RESULLLT")
   return (
     <div className="flex flex-col bg-gray-900 p-4 relative z-10 w-full h-screen gap-2 sm:pt-14 lg:pt-14 md:pt-14">
           

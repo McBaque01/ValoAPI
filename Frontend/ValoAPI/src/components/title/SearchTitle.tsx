@@ -8,7 +8,7 @@ interface SearchPropsType{
 }
 
 export const SearchTitle: React.FC<SearchPropsType>= ({Titles, Search, setResult}) => {
-    console.log(Titles,"1")
+   
     const filterData = () => {
     
         try {
