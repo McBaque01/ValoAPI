@@ -25,7 +25,5 @@ export const SearchBuddy: React.FC<SearchPropsType>= ({Buddies, Search, setResul
     filterData();
   }, [Search]);
   
-  return (
-    <div></div>
-  )
+  return null
 }

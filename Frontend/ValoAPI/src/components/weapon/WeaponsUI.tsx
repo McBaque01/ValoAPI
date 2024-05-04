@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { Suspense } from 'react'
 import { WeaponType } from '../typings/weaponTypes'
 interface WeaponUITypes{
     Weapons: WeaponType[],
@@ -7,7 +7,7 @@ interface WeaponUITypes{
 
 export const WeaponsUI: React.FC<WeaponUITypes> = ({Weapons, handleWeapon}) => {
   return (
-    
+   
     <div className="w-full h-fit relative
           after:content-[''] 
           after:absolute 
@@ -275,5 +275,6 @@ export const WeaponsUI: React.FC<WeaponUITypes> = ({Weapons, handleWeapon}) => {
           </div>
 
         </div>
+       
   )
 }

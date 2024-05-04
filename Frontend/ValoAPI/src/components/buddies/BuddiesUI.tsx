@@ -46,24 +46,24 @@ setCurrentBuddy(Buddies && Buddies[0])
 
         <div className="flex flex-row bg-gray-900 p-4 relative z-10 w-full h-screen gap-2 sm:flex-col md:flex-col lg:flex-col sm:pt-14 lg:pt-14 md:pt-14 xl:flex-row-reverse 2xl:flex-row-reverse">
           
-        <div className="w-full h-full relative flex flex-col gap-2 items-end">
-              <div className="w-fit h-fit relative right-0 sm:w-full">
-                  <input type="text" placeholder="Search" value={Search} onChange={(e)=>setSearch(e.target.value)} className="w-[20em] sm:w-full p-4 border-0 bg-gray-800 focus:border-none focus:outline-none border-none font-DinRegular text-slate-300"/>
-                  <SearchBuddy Buddies={Buddies} Search={deferredSearch} setResult={setResult}></SearchBuddy>
-              </div>
+          <div className="w-full h-full sm:h-[60%] relative flex flex-col gap-1 items-end">
+                <div className="w-fit h-fit relative right-0 sm:w-full">
+                    <input type="text" placeholder="Search" value={Search} onChange={(e)=>setSearch(e.target.value)} className="w-[20em] sm:w-full p-4 border-0 bg-gray-800 focus:border-none focus:outline-none border-none font-DinRegular text-slate-300"/>
+                    <SearchBuddy Buddies={Buddies} Search={deferredSearch} setResult={setResult}></SearchBuddy>
+                </div>
 
-              <div className="bg-gray-800 w-full h-full relative z-10 flex justify-center items-center">
-                <h1 className="absolute top-[1em] font-Tungsten font-normal uppercase text-[3em] lg:text-[2em] md:text-[2em] sm:text-[2em] text-ValoYellow tracking-widest">{CurrBuddy?.displayName}</h1>
-                  <LazyLoadImage src={CurrBuddy?.displayIcon} alt={CurrBuddy?.displayName}
-                  className=' object-contain min-w-[8em] min-h-[8em] 2xl:min-h-[12em] 2xl:min-w-[12em] hover:-translate-y-2 transition-all relative'/>
-              </div>
-        </div>
+                <div className="bg-gray-800 w-full h-full relative z-10 flex justify-center items-center">
+                  <h1 className="absolute top-[1em] font-Tungsten font-normal uppercase text-[3em] lg:text-[2em] md:text-[2em] sm:text-[2em] text-ValoYellow tracking-widest hover:text-ValoGreen">{CurrBuddy?.displayName}</h1>
+                    <LazyLoadImage src={CurrBuddy?.displayIcon} alt={CurrBuddy?.displayName}
+                    className=' object-contain min-w-[8em] min-h-[8em] 2xl:min-h-[12em] 2xl:min-w-[12em] hover:-translate-y-2 transition-all relative'/>
+                </div>
+          </div>
             
           
           
-          <div className="w-full h-full bg-gray-800 overflow-hidden relative gap-2 flex flex-col p-2 2xl:w-[80%] xl:w-[80%] text-center">
+          <div className="w-full h-full sm:h-[40%] bg-gray-800 overflow-hidden relative gap-2 flex flex-col p-2 2xl:w-[80%] xl:w-[80%] text-center">
             <Suspense fallback={<ParentLoading/>}>
-              <div className="relative h-full overflow-x-scroll text-center w-full">
+              <div className="relative h-full overflow-x-hidden text-center w-full flex justify-center overflow-y-scroll">
 
                   {Search && Search.length > 0 && Search !== "" 
                     ? 
@@ -87,17 +87,17 @@ setCurrentBuddy(Buddies && Buddies[0])
                         }
                       </>
                     :
-                        
-                      <div className='grid 2xl:grid-cols-8 xl:grid-cols-6 gap-2 bg-black lg:grid-cols-10 md:grid-cols-8 sm:grid-cols-4 p-2 place-content-center'>
-                        {Buddies && Buddies.length > 0 && Buddies.map((Buddy, uuid) => (
-                          <div key={uuid} className="text-ValoYellow relative flex justify-center p-3 bg-gray-700" onClick={()=>setCurrentBuddy(Buddy)}>
-                          <LazyLoadImage src={Buddy.displayIcon} alt={Buddy.displayName}
-                          className=' object-contain max-w-[10em] max-h-[5em] hover:-translate-y-2 transition-all relative'/>
+
+                    <div className=' flex flex-row flex-wrap w-full h-fit justify-center gap-2 min-w-[24em]'>
+                    {Buddies && Buddies.length > 0 && Buddies.map((Buddy, uuid) => (
+                      <div key={uuid} className="text-ValoYellow relative flex justify-center p-3 w-[5em] h-[5em] bg-ValoGreen bg-opacity-10 hover:bg-opacity-100" onClick={()=>setCurrentBuddy(Buddy)}>
+                      <LazyLoadImage src={Buddy.displayIcon} alt={Buddy.displayName}
+                      className='object-contain w-full h-full hover:-translate-y-2 transition-all relative'/>
+         
+                     </div>
+                     ))}
+                 </div>
               
-                          </div>
-                        ))}
-                      </div>
-                    
                   }
               </div>
             </Suspense>
