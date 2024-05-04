@@ -25,7 +25,7 @@ export const WeaponsUI: React.FC<WeaponUITypes> = ({Weapons, handleWeapon}) => {
         >
    
     <Suspense fallback={<ParentLoading/>}>
-      <div className='flex flex-col justify-center w-full h-fit p-4 py-10 relative items-center'>
+      <div className='flex flex-col justify-center w-full h-fit p-4 py-10 relative items-center sm:pt-14 lg:pt-14 md:pt-14'>
 
           <div className="relative z-10 flex flex-wrap flex-row h-fit min-w-[24em] gap-2  justify-center 2xl:w-[90%] xl:w-[90%] lg:w-[90%] md:w-[90%] sm:w-[80%]">
 
